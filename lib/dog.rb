@@ -50,6 +50,7 @@ attr_reader :id
    result = DB[:conn].execute(sql, id)[0]
    Dog.new(id: result[0], name: result[1], breed: result[2])
   end
+<<<<<<< HEAD
 
   def self.find_or_create_by(name:, breed:)
     dog = DB[:conn].execute("SELECT * FROM dogs WHERE name = ? AND breed = ?", name, breed)
@@ -61,4 +62,6 @@ attr_reader :id
     end
     self
   end
+=======
+>>>>>>> fef7ce85e0ee6bfd5bc65fb1f4e7deb3c7b0da9f
 end
