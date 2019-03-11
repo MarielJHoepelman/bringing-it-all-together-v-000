@@ -61,4 +61,10 @@ attr_reader :id
     id, name, breed = row[0], row[1], row[2]
     self.new(id: id, name: name, breed: breed)
   end
+
+  def self.find_by_name(name)
+    sql = "SELECT * FROM students WHERE name = ?"
+    row = DB[:conn].execute(sql, name)
+    self.new(row[0][0], row[0][1], row[0][2])
+  end
 end
